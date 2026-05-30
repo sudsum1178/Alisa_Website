@@ -11,7 +11,12 @@
     img{max-width:100%;height:auto}
     .container{max-width:980px;margin:0 auto}
     .photo-strip{display:flex;width:100vw;margin-left:calc(-50vw + 50%);margin-top:.75rem}
-    .photo-strip img{width:50vw;height:60vh;object-fit:cover}
+    .photo-strip img{width:50vw;height:60vh;object-fit:cover;cursor:pointer;transition:opacity .2s}
+    .photo-strip img:hover{opacity:.85}
+    /* lightbox */
+    #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;justify-content:center;align-items:center;cursor:zoom-out}
+    #lightbox.active{display:flex}
+    #lightbox img{max-width:95vw;max-height:95vh;object-fit:contain;border-radius:6px;box-shadow:0 0 40px #000}
   </style>
 </head>
 <body>
@@ -27,12 +32,30 @@
     <section>
       <h2>Photos</h2>
       <div class="photo-strip">
-        <img src="images/1.png" alt="Alisa photo 1" />
-        <img src="images/2.png" alt="Alisa photo 2" />
+        <img src="images/1.png" alt="Alisa photo 1" onclick="openLightbox(this)" />
+        <img src="images/2.png" alt="Alisa photo 2" onclick="openLightbox(this)" />
       </div>
     </section>
 
     <footer style="margin-top:2rem">Add more pages: `journal/`, `games/`. When ready I'll help link your domain.</footer>
   </div>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Full screen" />
+  </div>
+
+  <script>
+    function openLightbox(el) {
+      document.getElementById('lightbox-img').src = el.src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>
