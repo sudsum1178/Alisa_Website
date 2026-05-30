@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alisa's Site</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;padding:1rem;background:#f9fafb;color:#111}
+    header{display:flex;gap:1rem;align-items:center}
+    .hero{display:flex;gap:1rem;align-items:center}
+    img{max-width:100%;height:auto;border-radius:8px}
+    .thumbs{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.75rem}
+    .thumbs img{width:200px;object-fit:cover}
+    .container{max-width:980px;margin:0 auto}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Alisa's Corner</h1>
+    </header>
+
+    <section class="hero">
+      <p>Hello! Welcome to Alisa's website — a place for journals, photos and games.</p>
+    </section>
+
+    <section>
+      <h2>Photos</h2>
+      <p>Below are two images — put your PNG files into the `images/` folder with these names:</p>
+      <div class="thumbs">
+        <img src="images/alisa-photo-1.png" alt="Alisa photo 1" />
+        <img src="images/alisa-photo-2.png" alt="Alisa photo 2" />
+      </div>
+    </section>
+
+    <footer style="margin-top:2rem">Add more pages: `journal/`, `games/`. When ready I'll help link your domain.</footer>
+  </div>
+</body>
+</html>
